@@ -1,0 +1,88 @@
+#!/usr/bin/python	
+
+from urllib2 import *
+from re import *
+from sys import *
+import BeautifulSoup
+import time
+import threading
+import subprocess
+import os
+import sys
+import traceback
+from os.path import expanduser
+
+home = expanduser("~")
+
+Contest_Code=sys.argv[1]
+Problem_Code=sys.argv[2]
+
+Url='http://www.codechef.com/'+Contest_Code+'/problems/'+Problem_Code
+print "Fetching : ",Url,"...."
+try:
+	html=urlopen(Url,timeout=600).read()
+	html=html.replace('\r','')
+	soup=BeautifulSoup.BeautifulSoup(html)
+except Exception as e:
+	print "\n******** ",e," ************"
+	sys.exit(0)
+
+PRE=soup.findAll('pre')
+L=len(PRE)
+PRE=str(PRE[0])
+PRE=PRE.replace('<b>','').replace('</b>','').replace('<pre>','').replace('</pre>','')
+PRE=PRE.split('\n')
+L=len(PRE)
+InC=0
+OutC=0
+inC=1
+outC=1
+for i in PRE:
+	if('Input:' in i):
+		InC+=1
+	elif('Output:' in i):
+		OutC+=1
+i=0
+f=open(home+'/templates/input.txt','w')
+f.write('')
+f.close()
+f=open(home+'/templates/output.txt','w')
+f.write('')
+f.close()
+
+while(i<L):
+	if('Input' in PRE[i]):
+		j=i+1
+		f=open(home+'/templates/input.txt','a+')
+		while(j<L and 'Output' not in PRE[j]):
+			if(PRE[j]!=''):
+				In=str(PRE[j])
+				In=In.replace('&gt;','>')
+				In=In.replace('&lt;','<')
+				In=In.replace('&quot;','"')
+				In=In.replace('&amp;','&')
+				f.write(In+'\n')
+			j+=1
+		i=j
+		if(InC>inC):
+			f.write("'''\n")
+			inC+=1
+		f.close()
+	else:
+		j=i+1
+		f=open(home+'/templates/output.txt','a+')
+		while(j<L and 'Input' not in PRE[j]):
+			if(PRE[j]!=''):
+				Out=str(PRE[j])
+				Out=Out.replace('&gt;','>')
+				Out=Out.replace('&lt;','<')
+				Out=Out.replace('&quot;','"')
+				Out=Out.replace('&amp;','&')
+				f.write(Out+'\n')
+			j+=1
+		i=j
+		if(OutC>outC):
+			f.write("'''\n")
+			outC+=1
+		f.close()
+print "Done"

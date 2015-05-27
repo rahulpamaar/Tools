@@ -1,0 +1,31 @@
+#!/bin/bash
+name=$1
+flag=0
+PD=`pwd`
+if [[ $PD == *"TopCoder"* ]];then
+	diff(){
+  		awk 'BEGIN{RS=ORS=" "}{NR==FNR?a[$0]++:a[$0]--}END{for(k in a)if(a[k])print k}' <(echo -n "${!1}") <(echo -n "${!2}")
+	}
+	Array1=(*)
+	gettc $name
+	Array2=(*)
+	Array3=($(diff Array1[@] Array2[@]))
+	subl "$PD/${Array3[@]}/solve/cpp/${Array3[@]}.cpp"
+else
+        for i in ./*
+        do
+                if [[ "$i" =~ "$name" ]]; then
+                	flag=1
+                	break
+                fi
+        done
+        if (( $flag==0 )); then
+                touch $name
+                if [[ "$name" =~ ".cpp" ]]; then
+                        cat ~/templates/template.cpp >> $name
+                else
+                        cat ~/templates/template.c > $name
+                fi
+        fi
+        subl $name
+fi

@@ -1,0 +1,76 @@
+#!/usr/bin/python
+
+from urllib2 import *
+from sys import *
+import BeautifulSoup
+import subprocess
+import os
+import sys
+from os.path import expanduser
+
+home = expanduser("~")
+
+Contest_Code=sys.argv[1]
+Problem_Code=sys.argv[2]
+
+Url='http://codeforces.com/contest/'+Contest_Code+'/problem/'+Problem_Code
+print "Fetching : ",Url,"...."
+try:
+	html=urlopen(Url,timeout=600).read()
+	html=html.replace('\r','')
+	soup=BeautifulSoup.BeautifulSoup(html)
+except Exception:
+	pass
+PRE=soup.findAll('pre')
+L=len(PRE)
+for i in xrange(L):
+	if(i%2==0):
+		In=str(PRE[i])
+		In=In.replace('<pre>','').replace('</pre>','')
+		In=In.replace('&gt;','>')
+		In=In.replace('&lt;','<')
+		In=In.replace('&quot;','"')
+		In=In.replace('&amp;','&')
+		In=In.replace('<br />','\n')
+		In=In.replace('<br/>','\n')
+		In=In.replace('</ br>','\n')
+		In=In.replace('</br>','\n')
+		In=In.replace('<br>','\n')
+		In=In.replace('< br>','\n')
+		In=In.split('\n')
+		if(i==0):
+			f=open(home+'/templates/input.txt','w')
+		else:
+			f=open(home+'/templates/input.txt','a+')
+		for j in In:
+			y=j.replace('\n','')
+			if(y!='' and y!=' '):
+				f.write(y+'\n')
+		if(i!=L-2):
+			f.write("'''\n")
+		f.close()
+	else:
+		Out=str(PRE[i])
+	 	Out=Out.replace('<pre>','').replace('</pre>','')
+		Out=Out.replace('&gt;','>')
+		Out=Out.replace('&lt;','<')
+		Out=Out.replace('&quot;','"')
+		Out=Out.replace('&amp;','&')
+		Out=Out.replace('<br />','\n')
+		Out=Out.replace('<br/>','\n')
+		Out=Out.replace('</ br>','\n')
+		Out=Out.replace('<br>','\n')
+		Out=Out.split('\n')
+		f=open(home+'/templates/output.txt')
+		if(i==1):
+			f=open(home+'/templates/output.txt','w')
+		else:
+			f=open(home+'/templates/output.txt','a+')
+		for j in Out:
+			y=j.replace('\n','')
+			if(y!='' and y!=' '):
+				f.write(y+'\n')
+		if(i!=L-1):
+			f.write("'''\n")
+		f.close()
+print "Done"
