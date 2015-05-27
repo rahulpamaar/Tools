@@ -3,12 +3,12 @@
 2) Restart sublime input and now open KeyBindings-user file using : 
         Preferences -> KeyBindings-User
 
-3) Copy contents of SublKeyMap file(Present at Tools/SublEss directory) into it.
+3) Copy content of SublKeyMap file(Present at Tools/SublEss directory) into it.
 
 4) Now open Sublime Input Settings-User file using :
         Preferences -> Package Settings -> SublimeInput -> Settings-User
 
-5) Copy contents of SublInp file(Present at Tools/SublEss directory) into it.
+5) Copy content of SublInp file(Present at Tools/SublEss directory) into it.
 
 6) Now install gettc(TopCoder tool for offline practice) from here : https://github.com/seri/gettc
 
@@ -29,13 +29,13 @@
      |   `-- TopCoder
 
      That is :
-         -> If you need to do CodeChef Problem you need to work at "~/Programming/CodeChef/" directory and file name should be 
+         -> If you need to do CodeChef Problem you need to work in "~/Programming/CodeChef/" directory and file name should be 
             ContestCode_ProblemCode.cpp
             example : MAY15_CHEFRP.cpp, COOK56_DIVGOLD, .....
-         -> If you need to do CodeForces Problem you need to work at "~/Programming/CodeForces/" directory and file name should be
+         -> If you need to do CodeForces Problem you need to work in "~/Programming/CodeForces/" directory and file name should be
             ContestCode_ProblemCode.cpp
             example : 546_B.cpp, 71_C, 538_B.cpp, .....
-         -> If you need to do TopCoder Problem you need to work at "~/Programming/TopCoder/" directory
+         -> If you need to do TopCoder Problem you need to work in "~/Programming/TopCoder/" directory
 
 12) To create a new problem or to continue with the old one, type : create "ProblemName" in terminal.
     That is 
