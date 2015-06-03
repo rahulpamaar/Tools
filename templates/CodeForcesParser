@@ -61,7 +61,6 @@ for i in xrange(L):
 		Out=Out.replace('</ br>','\n')
 		Out=Out.replace('<br>','\n')
 		Out=Out.split('\n')
-		f=open(home+'/templates/output.txt')
 		if(i==1):
 			f=open(home+'/templates/output.txt','w')
 		else:
