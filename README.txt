@@ -14,9 +14,9 @@
 
 7) Now copy runner.rb and runner.sh (files present at Tools/gettcEss directory) into "/var/lib/gems/1.9.1/gems/gettc-1.10/dist/template/bin/" directory
 
-8) Change permissions of runner.sh, runner.rb files as shown :<pre>
+8) Change permissions of runner.sh, runner.rb files as shown :
       sudo chmod 755 /var/lib/gems/1.9.1/gems/gettc-1.10/dist/template/bin/runner.sh
-      sudo chmod 755 /var/lib/gems/1.9.1/gems/gettc-1.10/dist/template/bin/runner.rb</pre>
+      sudo chmod 755 /var/lib/gems/1.9.1/gems/gettc-1.10/dist/template/bin/runner.rb
       
 9) Now reset the gettc by 
       gettc reset
