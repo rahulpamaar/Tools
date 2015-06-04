@@ -67,4 +67,4 @@ NOTE :
    1) If you have your own template for cpp, then put that in ~/templates/template.cpp file.
    2) This works only for cpp. If your code is java/python/c .... it doesn't work so don't use this. 
       This is one limitation.
-   3) Report bugs at : achaitanyasai[AT]gmail[AT]com
+   3) Report bugs at : achaitanyasai[AT]gmail[DOT]com
