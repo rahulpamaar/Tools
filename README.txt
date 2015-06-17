@@ -24,7 +24,7 @@
         "/var/lib/gems/1.9.1/gems/gettc-1.10/dist/template/bin/" directory
 
 ------------------------------------------
-8) Change permissions of runner.sh, runner.rb files by running the following script:
+8) Change permissions of runner.sh, runner.rb files by running the following script (present at : Tools/ directory):
         bash Permissions.sh
         
 ------------------------------------------
@@ -96,5 +96,5 @@ That's it.
 -----------------------------------------
 NOTE :
    1) If you have your own template for cpp, then put that in ~/templates/template.cpp file.
-   2) This works only for cpp. If your code is java/python/c .... This is one limitation.
+   2) This works only for cpp. This is one limitation.
    3) Report bugs at : achaitanyasai[AT]gmail[DOT]com
