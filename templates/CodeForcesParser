@@ -24,7 +24,10 @@ except Exception:
 PRE=soup.findAll('pre')
 L=len(PRE)
 for i in xrange(L):
-	if(i%2==0):
+	if PRE[i].parent['class']=='note':
+		f.close()
+		break
+	elif(i%2==0):
 		In=str(PRE[i])
 		In=In.replace('<pre>','').replace('</pre>','')
 		In=In.replace('&gt;','>')
