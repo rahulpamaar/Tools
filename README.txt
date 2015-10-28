@@ -99,3 +99,10 @@ NOTE :
    1) If you have your own template for cpp, then put that in ~/templates/template.cpp file.
    2) This works only for cpp. This is one limitation.
    3) Report bugs at : achaitanyasai[AT]gmail[DOT]com
+   
+   
+   
+   
+   hi there 
+   
+   hi
